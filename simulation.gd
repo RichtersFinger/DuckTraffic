@@ -3,7 +3,6 @@ extends Node2D
 @export var radius: float = 300
 @export var number: int = 15
 
-#@onready var ducks_node = %Ducks
 var duck = load("res://duck.tscn")
 @onready var axis = $Axis
 
@@ -11,20 +10,27 @@ const PI: float = 3.1415926
 var separation: float
 var ducks
 
+
+# initialize simulation (create ducks and set initial position)
 func _ready():
 	# instantiate and initialize ducks
 	ducks = []
-	#ducks = ducks_node.get_children()
 	separation = 2.0 * PI / number
 	for i in range(number):
 		ducks.append(duck.instantiate())
 		ducks[i].name = "duck" + str(i)
 		add_child(ducks[i])
-		ducks[i].rotation = i * separation
-		ducks[i].position.x = axis.position.x + radius * cos(ducks[i].rotation)
-		ducks[i].position.y = axis.position.y + radius * sin(ducks[i].rotation)
+		set_duck(ducks[i], i * separation)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# update ducks per frame
 func _process(delta):
-	pass
+	for duck in ducks:
+		set_duck(duck, duck.rotation + duck.get_target_velocity() / radius * delta)
+
+
+# set duck position-helper
+func set_duck(duck, angle: float):
+	duck.rotation = angle
+	duck.position.x = axis.position.x + radius * cos(duck.rotation)
+	duck.position.y = axis.position.y + radius * sin(duck.rotation)
