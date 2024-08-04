@@ -31,7 +31,5 @@ position = Vector2(-2.50002, -222.5)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_41gi0")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
