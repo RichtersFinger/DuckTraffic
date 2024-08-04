@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b11vaayxkn4l0"]
+[gd_scene load_steps=4 format=3 uid="uid://b11vaayxkn4l0"]
 
 [ext_resource type="Texture2D" uid="uid://b3pbyxgfuxcyx" path="res://assets/duck_lod0.png" id="1_me6i1"]
+[ext_resource type="Script" path="res://duck.gd" id="1_ugpc8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7po6g"]
 radius = 227.009
 
 [node name="Duck" type="CharacterBody2D"]
 scale = Vector2(0.2, 0.2)
+script = ExtResource("1_ugpc8")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
