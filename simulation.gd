@@ -15,18 +15,22 @@ var ducks
 func _ready():
 	# instantiate and initialize ducks
 	ducks = []
+	var rand = RandomNumberGenerator.new()
 	separation = 2.0 * PI / number
 	for i in range(number):
 		ducks.append(duck.instantiate())
 		ducks[i].name = "duck" + str(i)
-		add_child(ducks[i])
 		set_duck(ducks[i], i * separation)
+		# randomize duck properties
+		ducks[i].max_target_velocity *= rand.randf_range(1.0, 1.5)
+		ducks[i].active = true
+		add_child(ducks[i])
 
 
 # update ducks per frame
 func _process(delta):
 	for duck in ducks:
-		set_duck(duck, duck.rotation + duck.get_target_velocity() / radius * delta)
+		set_duck(duck, duck.rotation + duck.get_current_velocity() / radius * delta)
 
 
 # set duck position-helper
