@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7s4ohkf3yy65"]
+
+[ext_resource type="Script" path="res://cloud.gd" id="1_u4eu4"]
+[ext_resource type="Texture2D" uid="uid://b4aijholtd1fc" path="res://assets/cloud0.png" id="2_6kqti"]
+
+[node name="Cloud" type="StaticBody2D"]
+scale = Vector2(0.41302, 0.41302)
+script = ExtResource("1_u4eu4")
+
+[node name="CloudBody" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6kqti")
+metadata/_edit_use_anchors_ = true
