@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var radius: float = 300
-@export var number: int = 15
+@export var number: int = 12
 
 var duck = load("res://duck.tscn")
 @onready var axis = $Axis
@@ -22,15 +22,14 @@ func _ready():
 		ducks[i].name = "duck" + str(i)
 		set_duck(ducks[i], i * separation)
 		# randomize duck properties
-		ducks[i].max_target_velocity *= rand.randf_range(1.0, 1.5)
-		ducks[i].active = true
+		#ducks[i].target_velocity *= rand.randf_range(1.0, 1.5)
 		add_child(ducks[i])
-
+	ducks[0].target_velocity *= 1.5
 
 # update ducks per frame
 func _process(delta):
 	for duck in ducks:
-		set_duck(duck, duck.rotation + duck.get_current_velocity() / radius * delta)
+		set_duck(duck, duck.rotation + duck.step_velocity(delta) / radius * delta)
 
 
 # set duck position-helper

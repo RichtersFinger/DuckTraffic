@@ -4,11 +4,36 @@
 [ext_resource type="Script" path="res://duck.gd" id="1_ugpc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41gi0"]
-size = Vector2(435, 455)
+size = Vector2(580.001, 665.001)
 
 [node name="Duck" type="CharacterBody2D"]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_ugpc8")
+
+[node name="NameLabel" type="Label" parent="."]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -68.5
+offset_right = 212.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[node name="CollisionLabel" type="Label" parent="."]
+offset_left = 225.0
+offset_top = -15.0
+offset_right = 370.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -27,8 +52,8 @@ texture = ExtResource("1_me6i1")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.50002, -222.5)
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(2.38419e-06, -327.5)
+scale = Vector2(0.999998, 0.999998)
 shape = SubResource("RectangleShape2D_41gi0")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
