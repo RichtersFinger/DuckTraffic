@@ -35,6 +35,7 @@ func step_velocity(delta):
 		current_velocity = min(0.0, current_velocity)
 		return axis * current_velocity
 	current_velocity += delta * responsiveness * (distance - 0.5*(free_dist + min_dist))
+	current_velocity = max(0.0, current_velocity)
 	return axis * current_velocity
 
 
@@ -76,7 +77,6 @@ func _normalize_position(position):
 func _on_area_2d_area_entered(area):
 	var duck = area.get_parent()
 	if _get_distance(duck) > 0:
-		print(duck.name + " entered at " + str(_get_distance(duck)/PI))
 		other_ducks.append(duck)
 	_update_collision_label()
 
