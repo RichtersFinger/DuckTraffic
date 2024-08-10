@@ -7,7 +7,7 @@
 size = Vector2(580.001, 665.001)
 
 [node name="Duck" type="CharacterBody2D"]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.12, 0.12)
 script = ExtResource("1_ugpc8")
 
 [node name="NameLabel" type="Label" parent="."]

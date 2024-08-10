@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var radius: float = 300
-@export var number: int = 12
+@export var number: int = 20
 
 var duck = load("res://duck.tscn")
 @onready var axis = $Axis

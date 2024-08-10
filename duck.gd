@@ -7,9 +7,10 @@ var target_velocity: float = 100.0
 var current_velocity: float
 var max_acceleration: float = 40.0
 var responsiveness: float = 100.0
-var free_dist: float = 0.12*PI
-var min_dist: float = 0.1*PI
-var collision_dist: float = 0.1*PI
+var free_dist: float = 0.15*PI
+var min_dist: float = 0.12*PI
+var collision_dist: float = 0.06*PI
+
 var other_ducks = []  # used to track collisions
 @onready var collision_label = $CollisionLabel
 
