@@ -29,6 +29,7 @@ func _ready():
 		add_child(ducks[i])
 	#ducks[0].target_velocity *= 1.5
 
+
 # update ducks per frame
 func _process(delta):
 	time += delta
@@ -41,3 +42,8 @@ func set_duck(duck, angle: float):
 	duck.rotation = angle
 	duck.position.x = axis.position.x + radius * cos(duck.rotation)
 	duck.position.y = axis.position.y + radius * sin(duck.rotation)
+
+
+func toggle_duck_labels(on: bool):
+	for duck in ducks:
+		duck.name_label.visible = on

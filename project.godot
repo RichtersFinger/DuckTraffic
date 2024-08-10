@@ -18,3 +18,8 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 window/size/viewport_width=1500
 window/size/viewport_height=1113
+window/stretch/mode="viewport"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=1
