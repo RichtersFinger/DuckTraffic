@@ -15,12 +15,14 @@ var min_dist: float = 0.12*PI
 var collision_dist: float = 0.06*PI
 
 var other_ducks = []  # used to track collisions
+var label_text
 @onready var name_label = $NameLabel
 @onready var collision_label = $CollisionLabel
 
 
-func _ready():
-	name_label.text = self.name
+func refresh_name_label(on: bool):
+	name_label.text = label_text
+	name_label.visible = on
 
 
 # returns current velocity of given duck
