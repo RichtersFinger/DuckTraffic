@@ -20,4 +20,4 @@ func _on_reset_pressed():
 
 
 func _on_apply_pressed():
-	pass
+	simulation.reset()
