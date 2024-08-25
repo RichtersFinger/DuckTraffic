@@ -11,7 +11,6 @@ var current_velocity: float
 var max_acceleration: float = 40.0
 var responsiveness: float = 2.5  # emergency-breaking factor for max_acceleration
 var free_dist: float = 0.15*PI
-var min_dist: float = 0.12*PI
 var collision_dist: float = 0.06*PI
 
 var other_ducks = []  # used to track collisions
@@ -46,9 +45,7 @@ func step_velocity(delta, time):
 	if distance < collision_dist:
 		current_velocity = min(0.0, current_velocity)
 		return axis * current_velocity
-	current_velocity += delta * responsiveness * max_acceleration * (
-		distance - 0.5*(free_dist + min_dist)
-	)
+	current_velocity += delta * responsiveness * max_acceleration * (distance - free_dist)
 	current_velocity = max(0.0, current_velocity)
 	return axis * current_velocity
 

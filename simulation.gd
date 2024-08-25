@@ -23,6 +23,8 @@ var raft_max_acceleration: float = 40
 var raft_accuracy: float = 0.9
 @onready var raft_responsiveness_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Collective/VBoxContainer/ResponsivenessSlider/HSlider
 var raft_responsiveness: float = 2.5
+@onready var raft_freedist_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Collective/VBoxContainer/FreeDistSlider/HSlider
+var raft_freedist: float = 0.12
 # rouge - settings
 @onready var rouge_active_button = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/Active
 var rouge_active = false
@@ -34,6 +36,8 @@ var rouge_max_acceleration: float = 40
 var rouge_accuracy: float = 0.9
 @onready var rouge_responsiveness_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/ResponsivenessSlider/HSlider
 var rouge_responsiveness: float = 2.5
+@onready var rouge_freedist_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/FreeDistSlider/HSlider
+var rouge_freedist: float = 0.12
 
 
 # initialize simulation (create ducks and set initial position)
@@ -79,6 +83,7 @@ func reset():
 	raft_max_acceleration = raft_max_acceleration_slider.value
 	raft_accuracy = raft_accuracy_slider.value
 	raft_responsiveness = raft_responsiveness_slider.value
+	raft_freedist = raft_freedist_slider.value
 	rouge_active = rouge_active_button.button_pressed
 	rouge_target_velocity = rouge_target_velocity_slider.value
 	rouge_max_acceleration = rouge_max_acceleration_slider.value
@@ -103,6 +108,7 @@ func reset():
 		ducks[i].consistency_accuracy = 1.0 - raft_accuracy
 		ducks[i].consistency_phase = rand.randf_range(0.0, 2 * PI)
 		ducks[i].target_velocity *= rand.randf_range(raft_accuracy, 2.0 - raft_accuracy)
+		ducks[i].free_dist = raft_freedist * PI
 		add_child(ducks[i])
 	if rouge_active:
 		ducks[0].target_velocity = rouge_target_velocity
