@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Sprite2D
 
 @export var velocity: float = 50.0
 
