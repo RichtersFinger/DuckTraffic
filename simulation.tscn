@@ -1,12 +1,91 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy4jhur3ippnv"]
+[gd_scene load_steps=20 format=3 uid="uid://cy4jhur3ippnv"]
 
 [ext_resource type="Script" path="res://simulation.gd" id="1_2eo06"]
-[ext_resource type="Texture2D" uid="uid://cubt5r7yqr3g4" path="res://assets/background.png" id="1_y4wqu"]
+[ext_resource type="Texture2D" uid="uid://cuolvfxderri7" path="res://assets/background.png" id="1_y4wqu"]
 [ext_resource type="Texture2D" uid="uid://dsqv8t8vc7040" path="res://assets/rock.png" id="3_bhldh"]
 [ext_resource type="Texture2D" uid="uid://b4aijholtd1fc" path="res://assets/cloud0.png" id="4_5lola"]
 [ext_resource type="Script" path="res://cloud.gd" id="4_gwu72"]
+[ext_resource type="Texture2D" uid="uid://dy2nja0fo6yp6" path="res://assets/rock_ripples.png" id="4_h01mk"]
 [ext_resource type="PackedScene" uid="uid://c7vwkk2vcvaai" path="res://settings_slider_option.tscn" id="6_81hte"]
 [ext_resource type="Script" path="res://GUI.gd" id="6_ygy4c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hcvp"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(0, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ar2y"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(500, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm83j"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(1000, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wffa8"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(1500, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y0ek"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(2000, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hmtx"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(2500, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwicb"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(3000, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0sjj"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(3500, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeovn"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(4000, 0, 500, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u37o0"]
+atlas = ExtResource("4_h01mk")
+region = Rect2(4500, 0, 500, 374)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0meql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hcvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ar2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm83j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wffa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y0ek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hmtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwicb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0sjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeovn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u37o0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Simulation" type="Node2D"]
 script = ExtResource("1_2eo06")
@@ -38,6 +117,11 @@ offset_bottom = 240.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_bhldh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Axis"]
+scale = Vector2(1.56, 1.56)
+sprite_frames = SubResource("SpriteFrames_0meql")
+autoplay = "default"
 
 [node name="Clouds" type="Node" parent="."]
 
