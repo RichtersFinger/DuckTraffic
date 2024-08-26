@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b11vaayxkn4l0"]
+[gd_scene load_steps=5 format=3 uid="uid://b11vaayxkn4l0"]
 
 [ext_resource type="Texture2D" uid="uid://b3pbyxgfuxcyx" path="res://assets/duck_lod0.png" id="1_me6i1"]
 [ext_resource type="Script" path="res://duck.gd" id="1_ugpc8"]
+[ext_resource type="Texture2D" uid="uid://dqrlsup7to0w6" path="res://assets/highlight.png" id="2_3d0fy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41gi0"]
 size = Vector2(580.001, 665.001)
@@ -36,6 +37,22 @@ offset_right = 370.0
 offset_bottom = 122.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
+
+[node name="highlight" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.333
+offset_top = -275.0
+offset_right = 1716.67
+offset_bottom = 1701.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("2_3d0fy")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8

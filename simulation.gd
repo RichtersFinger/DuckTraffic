@@ -117,6 +117,6 @@ func reset():
 		ducks[0].consistency_accuracy = 1.0 - rouge_accuracy/2.0
 		ducks[0].consistency_phase = rand.randf_range(0.0, 2 * PI)
 		ducks[0].target_velocity *= rand.randf_range(rouge_accuracy, 2.0 - rouge_accuracy)
+		ducks[0].refresh_highlight(true)
 		
 	toggle_duck_labels(visible_labels)
-	
