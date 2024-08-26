@@ -17,6 +17,14 @@ var other_ducks = []  # used to track collisions
 var label_text
 @onready var name_label = $NameLabel
 @onready var collision_label = $CollisionLabel
+@onready var highlight = $highlight
+var has_highlight = false
+
+
+func refresh_highlight(on: bool):
+	has_highlight = on
+	if highlight:
+		highlight.visible = has_highlight
 
 
 func refresh_name_label(on: bool):
