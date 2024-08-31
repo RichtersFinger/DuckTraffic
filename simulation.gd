@@ -89,6 +89,7 @@ func reset():
 	rogue_max_acceleration = rogue_max_acceleration_slider.value
 	rogue_accuracy = rogue_accuracy_slider.value
 	rogue_responsiveness = rogue_responsiveness_slider.value
+	rogue_freedist = rogue_freedist_slider.value
 	# cleanup existing ducks
 	if ducks:
 		for duck in ducks:
@@ -117,6 +118,7 @@ func reset():
 		ducks[0].consistency_accuracy = 1.0 - rogue_accuracy/2.0
 		ducks[0].consistency_phase = rand.randf_range(0.0, 2 * PI)
 		ducks[0].target_velocity *= rand.randf_range(rogue_accuracy, 2.0 - rogue_accuracy)
+		ducks[0].free_dist = rogue_freedist * PI
 		ducks[0].refresh_highlight(true)
-		
+
 	toggle_duck_labels(visible_labels)
