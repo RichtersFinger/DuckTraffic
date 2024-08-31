@@ -25,19 +25,19 @@ var raft_accuracy: float = 0.9
 var raft_responsiveness: float = 2.5
 @onready var raft_freedist_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Collective/VBoxContainer/FreeDistSlider/HSlider
 var raft_freedist: float = 0.12
-# rouge - settings
-@onready var rouge_active_button = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/Active
-var rouge_active = false
-@onready var rouge_target_velocity_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/VelocitySlider/HSlider
-var rouge_target_velocity: float = 100
-@onready var rouge_max_acceleration_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/MaxAccelerationSlider/HSlider
-var rouge_max_acceleration: float = 40
-@onready var rouge_accuracy_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/AccuracySlider/HSlider
-var rouge_accuracy: float = 0.9
-@onready var rouge_responsiveness_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/ResponsivenessSlider/HSlider
-var rouge_responsiveness: float = 2.5
-@onready var rouge_freedist_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/FreeDistSlider/HSlider
-var rouge_freedist: float = 0.12
+# rogue - settings
+@onready var rogue_active_button = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/Active
+var rogue_active = false
+@onready var rogue_target_velocity_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/VelocitySlider/HSlider
+var rogue_target_velocity: float = 100
+@onready var rogue_max_acceleration_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/MaxAccelerationSlider/HSlider
+var rogue_max_acceleration: float = 40
+@onready var rogue_accuracy_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/AccuracySlider/HSlider
+var rogue_accuracy: float = 0.9
+@onready var rogue_responsiveness_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/ResponsivenessSlider/HSlider
+var rogue_responsiveness: float = 2.5
+@onready var rogue_freedist_slider = $GUI/MarginContainer/VBoxContainer/TabContainer/Single/VBoxContainer/FreeDistSlider/HSlider
+var rogue_freedist: float = 0.12
 
 
 # initialize simulation (create ducks and set initial position)
@@ -84,11 +84,11 @@ func reset():
 	raft_accuracy = raft_accuracy_slider.value
 	raft_responsiveness = raft_responsiveness_slider.value
 	raft_freedist = raft_freedist_slider.value
-	rouge_active = rouge_active_button.button_pressed
-	rouge_target_velocity = rouge_target_velocity_slider.value
-	rouge_max_acceleration = rouge_max_acceleration_slider.value
-	rouge_accuracy = rouge_accuracy_slider.value
-	rouge_responsiveness = rouge_responsiveness_slider.value
+	rogue_active = rogue_active_button.button_pressed
+	rogue_target_velocity = rogue_target_velocity_slider.value
+	rogue_max_acceleration = rogue_max_acceleration_slider.value
+	rogue_accuracy = rogue_accuracy_slider.value
+	rogue_responsiveness = rogue_responsiveness_slider.value
 	# cleanup existing ducks
 	if ducks:
 		for duck in ducks:
@@ -110,13 +110,13 @@ func reset():
 		ducks[i].target_velocity *= rand.randf_range(raft_accuracy, 2.0 - raft_accuracy)
 		ducks[i].free_dist = raft_freedist * PI
 		add_child(ducks[i])
-	if rouge_active:
-		ducks[0].target_velocity = rouge_target_velocity
-		ducks[0].max_acceleration = rouge_max_acceleration
-		ducks[0].responsiveness = rouge_responsiveness
-		ducks[0].consistency_accuracy = 1.0 - rouge_accuracy/2.0
+	if rogue_active:
+		ducks[0].target_velocity = rogue_target_velocity
+		ducks[0].max_acceleration = rogue_max_acceleration
+		ducks[0].responsiveness = rogue_responsiveness
+		ducks[0].consistency_accuracy = 1.0 - rogue_accuracy/2.0
 		ducks[0].consistency_phase = rand.randf_range(0.0, 2 * PI)
-		ducks[0].target_velocity *= rand.randf_range(rouge_accuracy, 2.0 - rouge_accuracy)
+		ducks[0].target_velocity *= rand.randf_range(rogue_accuracy, 2.0 - rogue_accuracy)
 		ducks[0].refresh_highlight(true)
 		
 	toggle_duck_labels(visible_labels)
