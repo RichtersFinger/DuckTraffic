@@ -6,7 +6,7 @@ Traffic simulation with duck-agents using Godot 4.
 Either open the project in Godot 4 itself or unpack and run the binary for your os from the `bin/`-directory.
 
 ## Example
-Below are a few frames of a simulation using the default parameters.
+See [here](https://youtu.be/PVxibSsVEbI) for an animation and some context. Below are a few frames of a simulation using the default parameters.
 ![](demo/screen0.png)![](demo/screen1.png)![](demo/screen2.png)
 
 ## GUI
